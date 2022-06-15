@@ -14,7 +14,7 @@
     "@middy/core": "^2.5.3",
     "@middy/http-json-body-parser": "^2.5.3",
     "chrome-aws-lambda": "^10.1.0",
-    "puppeteer-core": "^14.4.0"
+    "puppeteer-core": "^10.1.0"
   },
   "devDependencies": {
     "@serverless/typescript": "^3.0.0",
@@ -22,6 +22,7 @@
     "@types/node": "^14.14.25",
     "esbuild": "^0.14.11",
     "json-schema-to-ts": "^1.5.0",
+    "puppeteer": "^14.4.0",
     "serverless": "^3.0.0",
     "serverless-dotenv-plugin": "^4.0.1",
     "serverless-esbuild": "^1.23.3",

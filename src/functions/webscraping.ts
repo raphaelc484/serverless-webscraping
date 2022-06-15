@@ -1,6 +1,6 @@
 import { ScheduledHandler } from "aws-lambda";
-import puppeteer from "puppeteer-core";
 import chromium from "chrome-aws-lambda";
+import puppeteer from "puppeteer-core";
 
 export const handler: ScheduledHandler = async (event) => {
   // console.log(event.time);
@@ -13,8 +13,8 @@ export const handler: ScheduledHandler = async (event) => {
     try {
       const browser = await puppeteer.launch({
         args: chromium.args,
-        defaultViewport: chromium.defaultViewport,
         executablePath: await chromium.executablePath,
+        headless: true,
       });
 
       const page = await browser.newPage();
