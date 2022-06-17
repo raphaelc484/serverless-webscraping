@@ -13,6 +13,7 @@
   "dependencies": {
     "@middy/core": "^2.5.3",
     "@middy/http-json-body-parser": "^2.5.3",
+    "axios": "^0.27.2",
     "chrome-aws-lambda": "^10.1.0",
     "puppeteer-core": "^10.1.0"
   },

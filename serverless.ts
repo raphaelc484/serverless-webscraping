@@ -28,7 +28,7 @@ const serverlessConfiguration: AWS = {
       handler: "src/functions/webscraping.handler",
       events: [
         {
-          schedule: "cron(0/5 * * * ? *)",
+          schedule: "cron(0/3 * * * ? *)",
         },
       ],
     },
