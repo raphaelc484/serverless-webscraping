@@ -2,6 +2,8 @@ import { ScheduledHandler } from "aws-lambda";
 import chromium from "chrome-aws-lambda";
 import puppeteer from "puppeteer-core";
 import axios from "axios";
+import fs from "fs";
+import path from "path";
 
 export const handler: ScheduledHandler = async (event) => {
   // console.log(event.time);
@@ -15,7 +17,7 @@ export const handler: ScheduledHandler = async (event) => {
       args: chromium.args,
       executablePath:
         process.env.CHROME_EXECUTABLE_PATH || (await chromium.executablePath),
-      headless: false,
+      headless: true,
     });
 
     const page = await browser.newPage();
@@ -46,9 +48,23 @@ export const handler: ScheduledHandler = async (event) => {
       const text = await (await f.getProperty("textContent")).jsonValue();
 
       if (text) {
-        await page.click(
-          `.item_produto_a6dbcb54 .item_produto_corpo_a6dbcb54 #linkproduto-${numberCSS}`
-        );
+        console.log(text);
+
+        const pathT = path.resolve(__dirname);
+
+        // const t = fs.readFileSync(pathT);
+
+        console.log(pathT);
+
+        // await page.click(
+        //   `.item_produto_a6dbcb54 .item_produto_corpo_a6dbcb54 #linkproduto-${numberCSS}`
+        // );
+
+        //Esse elemento consegue travar local de download
+        // await (page as any)._client.send('Page.setDownloadBehavior', {
+        //   behavior: 'allow',
+        //   downloadPath: pathSave,
+        // });
       }
 
       // await (page as any)._client.send("Network.clearBrowserCookies");
